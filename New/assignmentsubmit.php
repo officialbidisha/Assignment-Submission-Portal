@@ -74,7 +74,7 @@
                                     date_default_timezone_set('Indian/Antananarivo');
                                     $date=date("Y/m/d");
                                     
-                                    $query="INSERT INTO submission(ass_no,subject,link,student_name,date) VALUES('$number','$subject','$link','$username','$date')";
+                                    $query="INSERT INTO submission(ass_no,sem,subject,link,student_name,date) VALUES('$number',''$semester',$subject','$link','$username','$date')";
                                     $data=mysqli_query($con,$query);
                                     if($data)
                                     {

@@ -15,9 +15,10 @@ if (isset($_GET['semester'])) {
 <html lang="en">
 
 <head>
-        <title>Bootstrap Example</title>
+        <title>Assignment Inside</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -35,79 +36,82 @@ if (isset($_GET['semester'])) {
                         background-size: contain;
                 }
         </style>
+
 </head>
 
 <body>
+         
         <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-                <div class="collapse navbar-collapse" id="navbarsExample02">
-                        <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active"> <a class="nav-link" href="firstteacher.php">Dashboard</a> </li>
-                        </ul>
-                        <form class="form-inline my-2 my-md-0"> </form>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"> <a class="nav-link" href="firstteacher.php">Dashboard</a> </li>
+                </ul>
+                <form class="form-inline my-2 my-md-0"> </form>
+            </div>
         </nav>
         <div id="wrapper" class="toggled">
-                <!-- Sidebar -->
-                <div id="sidebar-wrapper">
-                        <ul class="sidebar-nav">
-                                <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
-                                <li> <a href="firstteacher.php">Dashboard</a> </li>
-                                <li> <a href="assignmentinside.php">Assignments</a> </li>
-                                <li> <a href="noticeview.php">Notices</a> </li>
-                                <li> <a href="studyupload.php">Study Material</a> </li>
-                                <li> <a href="#">Contact</a> </li>
-                        </ul>
-                </div> <!-- /#sidebar-wrapper -->
-                <div id="page-content-wrapper">
-                <div class="container">
-                <center>
-                                        <h1><?php echo "Welcome " . $_SESSION['username']; ?></h1>
-                </center>
-                <div class="container row ">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username']?> </a> </li>
+                    <li> <a href="firstteacher.php">Dashboard</a> </li>
+                    <li> <a href="assignmentinside.php">Assignments</a> </li>
+                    <li> <a href="noticeview.php">Notices</a> </li>
+                    <li> <a href="studyupload.php">Study Material</a> </li>
+                    <li> <a href="#">Contact</a> </li>
+                </ul>
+            </div> <!-- /#sidebar-wrapper -->
+            <div id="page-content-wrapper">
+            <div class="container"><!---a condition bases container----->
+            <center>
+                <h1><?php echo "Welcome "?></h1>
+             </center>
+                
+             <div class="p-3"></div>
+                        <div class="container row ">
+
                                 <div class="col-md-4">
-                                        <a href="postnotice.php">
-                                                <div class="custom-card card-brick" style="background-image:url('notice1.jpg')">
+                                        <a href="assignmentupload.php">
+                                                <div class="custom-card card-bluish" style="background-image:url('upload1.png')">
 
 
                                                         <div class="custom-card-banner ">
-                                                                <h4>Notices</h3>
+                                                                <h4>Upload</h3>
 
                                                         </div>
                                                 </div>
                                         </a>
                                 </div>
+
                                 <div class="col-md-4">
-                                        <a href="assignemntinside.php">
-                                                <div class="custom-card card-yellow" style="background-image:url('assignment.jpg')">
+                                        <a href="assview_teacher.php">
+                                                <div class="custom-card card-orange" style="background-image:url('task.jpg')">
 
 
-                                                        <div class="custom-card-banner ">
+                                                        <div class="custom-card-banner">
                                                                 <h4>Assignments</h3>
 
                                                         </div>
                                                 </div>
                                         </a>
                                 </div>
+
                                 <div class="col-md-4">
-                                        <a href="studyupload.php">
-                                                <div class="custom-card card-reddish" style="background-image:url('study-material.jpg')">
-
-
-                                                        <div class="custom-card-banner ">
-                                                                <h4>Study Material</h3>
+                                        <a href="submissionreport.php">
+                                                <div class="custom-card card-blue" style="background-image:url('Report1.jpg')">
+                                                        <div class="custom-card-banner">
+                                                                <h4>Report</h3>
 
                                                         </div>
                                                 </div>
                                         </a>
                                 </div>
-                                
 
-
-
-                </div>
-                <div class="p-5"></div>
-                </div><!----end of container class---->
-                </div><!---end of page content wrapper---->
-                </body>
+                        </div>
+                        <div class="p-5"></div>    
+                </div><!---end of optional container--->    
+            </div><!---end of page wrapper=---->
+        </div>
+</body>
 
 </html>
