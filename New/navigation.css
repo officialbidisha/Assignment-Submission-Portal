@@ -6,10 +6,10 @@
  *   Copyright: GPL
  *******************************************************************************/
 
- body {
-    direction: rtl;
-    text-align:right
-}
+ nav{
+     direction: rtl;
+     text-align: right;
+ }
 
 dd {
     margin-right: 0;

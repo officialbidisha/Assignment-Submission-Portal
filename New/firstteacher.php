@@ -61,7 +61,7 @@ if (isset($_GET['semester'])) {
                 <div id="page-content-wrapper">
                 <div class="container">
                 <center>
-                                        <h1><?php echo "Welcome " . $_SESSION['username']; ?></h1>
+                                        <h1><?php echo "Welcome "; ?></h1>
                 </center>
                 <div class="container row ">
                                 <div class="col-md-4">
@@ -70,19 +70,19 @@ if (isset($_GET['semester'])) {
 
 
                                                         <div class="custom-card-banner ">
-                                                                <h4>Notices</h3>
+                                                                <h4>Notices</h4>
 
                                                         </div>
                                                 </div>
                                         </a>
                                 </div>
                                 <div class="col-md-4">
-                                        <a href="assignemntinside.php">
-                                                <div class="custom-card card-yellow" style="background-image:url('assignment.jpg')">
+                                        <a href="assignmentinside.php">
+                                                <div class="custom-card card-orange" style="background-image:url('assignment.jpg')">
 
 
                                                         <div class="custom-card-banner ">
-                                                                <h4>Assignments</h3>
+                                                                <h4>Assignments</h4>
 
                                                         </div>
                                                 </div>
@@ -94,7 +94,7 @@ if (isset($_GET['semester'])) {
 
 
                                                         <div class="custom-card-banner ">
-                                                                <h4>Study Material</h3>
+                                                                <h4>Study Material</h4>
 
                                                         </div>
                                                 </div>
