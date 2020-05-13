@@ -24,6 +24,7 @@ if (isset($_GET['sem'])) {
   <script src="navigation.js"></script>
   <link href="navigation.css" rel="stylesheet" id="naviagtion-css">
   <link rel="stylesheet" href="cardstyles.css">
+  <link rel="stylesheet" href="tablestyle.css">
   <style>
     body {
       background-color: #ededed;
@@ -128,7 +129,7 @@ if (isset($_GET['sem'])) {
         } else { //second if else
           ?>
           <div class="container d-flex justify-content-center">
-            <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+            <div class="d-flex justify-content-center alert alert-primary" style="width:30%">
               <?php echo 'Search a semester first'; ?>
             </div>
           </div>
@@ -143,13 +144,13 @@ if (isset($_GET['sem'])) {
           $total = mysqli_num_rows($data);
           if ($total > 0) {
         ?>
-            <table class="table table-dark" style="text-align:center">
-              <thead class="thead-blue">
+            <table class="table-design " style="text-align:center">
+              <thead class="table-dark bg-primary">
                 <tr>
                   <!---<th scope="col">Serial No.</th>--->
-                  <th scope="col" style="text-align:center">Assignment Number</th>
-                  <th scope="col" style="text-align:center">Link</th>
-                  <th scope="col" style="text-align:center">Submit Date</th>
+                  <th scope="col" >Assignment Number</th>
+                  <th scope="col" >Link</th>
+                  <th scope="col" >Submit Date</th>
                 </tr>
               </thead>
 
@@ -158,7 +159,7 @@ if (isset($_GET['sem'])) {
 
               while ($result = mysqli_fetch_array($data)) {
               ?>
-                <tbody class="bg-light">
+                <tbody class="table-design">
                   <tr>
                     <td><?php echo $result['ass_no']; ?></td>
 

@@ -2,7 +2,7 @@
     box-shadow: 0px 1px 6px -1px #222222;
     border-radius: 10px;
     padding: 140px 0px;/*top bottom , left right*/
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position:center;
     cursor: pointer;
