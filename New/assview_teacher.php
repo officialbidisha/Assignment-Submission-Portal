@@ -66,8 +66,10 @@ if (isset($_GET['sem'])) {
 
           <div class="form-group text-center">
             <div class="container">
-              <label for="sem">Semester</label>
+              
               <div class="row d-flex justify-content-center">
+                <label for="sem">Semester</label>
+                <div class="p-2"></div>
                 <input type="number" class="form-control w-25 col-xs-6" id="num" value="<?php echo $semester; ?>" name="sem" aria-describedby="semester" placeholder="Enter Semester">
                 <div class="p-2"></div>
                 <button type="submit" class="btn btn-primary col-xs-6">Search</button>
@@ -85,11 +87,13 @@ if (isset($_GET['sem'])) {
         ?>
             <form action="" method="post">
               <input name="semester" value="<?php echo $_GET["sem"]; ?>" type="hidden">
+              
+              <div class="row d-flex justify-content-center">
               <div class="text-center ">
                 <label for="exampleFormControlSelect1">Select</label>
               </div>
-              <div class="row d-flex justify-content-center">
-                <div class=" form-group col-xs-6">
+              <div class="p-3"></div>
+                <div class=" form-group col-xs-6 w-25">
 
                   <select class="form-control" name="subject">
                     <!---the subject is the variable where the selected item is stored-->
@@ -110,7 +114,7 @@ if (isset($_GET['sem'])) {
                 </div>
                 <div class="p-2"></div>
                 <div class="text-center col-xs-6 ">
-                  <button type="submit" name="upload" class="btn btn-dark">View</button>
+                  <button type="submit" name="upload" class="btn btn-primary">View</button>
                 </div>
               </div>
               <!---row end----->
@@ -144,13 +148,14 @@ if (isset($_GET['sem'])) {
           $total = mysqli_num_rows($data);
           if ($total > 0) {
         ?>
-            <table class="table-design " style="text-align:center">
+            
+            <table class="table-design" style="text-align:center">
               <thead class="table-dark bg-primary">
                 <tr>
                   <!---<th scope="col">Serial No.</th>--->
-                  <th scope="col" >Assignment Number</th>
-                  <th scope="col" >Link</th>
-                  <th scope="col" >Submit Date</th>
+                  <th scope="col" >No.</th>
+                  <th scope="col" >Assignment Viewing Link</th>
+                  <th scope="col" >Date</th>
                 </tr>
               </thead>
 
@@ -170,12 +175,17 @@ if (isset($_GET['sem'])) {
                 </tbody>
           <?php
               }
-            } else {
-              echo 'No Submissions';
-            }
+            } else {?>
+                <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                <?php  echo 'No Submissions'; ?>
+                </div>
+                </div>
+            <?php }
           }
           ?>
             </table>
+        
 
       </div>
       <!---container-mt5---->
