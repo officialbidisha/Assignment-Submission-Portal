@@ -85,7 +85,7 @@ if (isset($_GET['semester'])) {
 
                                 <div class="col-md-4">
                                         <a href="assview_teacher.php">
-                                                <div class="custom-card card-orange" style="background-image:url('task.jpg')">
+                                                <div class="custom-card card-red-azure" style="background-image:url('task.jpg')">
 
 
                                                         <div class="custom-card-banner">

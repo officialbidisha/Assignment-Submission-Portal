@@ -67,7 +67,7 @@ if (isset($_GET['sem'])) {
             <div class="container">
               <label for="sem">Semester</label>
               <div class="row d-flex justify-content-center">
-                <input type="number" class="form-control w-50 col-xs-6" id="num" value="<?php echo $semester; ?>" name="sem" aria-describedby="semester" placeholder="Enter Semester">
+                <input type="number" class="form-control w-25 col-xs-6" id="num" value="<?php echo $semester; ?>" name="sem" aria-describedby="semester" placeholder="Enter Semester">
                 <div class="p-2"></div>
                 <button type="submit" class="btn btn-primary col-xs-6">Search</button>
               </div>
@@ -85,45 +85,54 @@ if (isset($_GET['sem'])) {
             <form action="" method="post">
               <input name="semester" value="<?php echo $_GET["sem"]; ?>" type="hidden">
               <div class="text-center ">
-                  <label for="exampleFormControlSelect1">Select</label>
+                <label for="exampleFormControlSelect1">Select</label>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <div class=" form-group col-xs-6">
+
+                  <select class="form-control" name="subject">
+                    <!---the subject is the variable where the selected item is stored-->
+
+                    <?php
+
+                    while ($row_subject = mysqli_fetch_array($run_subject)) {
+
+                      $subject = $row_subject['subject'];
+                      echo "<option>$subject</option>";
+                    }
+
+                    ?>
+
+                  </select>
+
+
                 </div>
-              <div class="form-group d-flex justify-content-center">
-               
-                <select class="form-control" name="subject">
-                  <!---the subject is the variable where the selected item is stored-->
-
-                  <?php
-
-                  while ($row_subject = mysqli_fetch_array($run_subject)) {
-
-                    $subject = $row_subject['subject'];
-                    echo "<option>$subject</option>";
-                  }
-
-                  ?>
-
-                </select>
                 <div class="p-2"></div>
-                <div class="text-center">
+                <div class="text-center col-xs-6 ">
                   <button type="submit" name="upload" class="btn btn-dark">View</button>
                 </div>
               </div>
+              <!---row end----->
             </form>
-        <?php
-          } else { //first if else?>
-          <div class="container d-flex justify-content-center">
-          <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
-            <?php echo "Enter correct semester"; ?>
-          </div><!--first warning container--->
-          </div><!---second warning container--->
+          <?php
+          } else { //first if else
+          ?>
+            <div class="container d-flex justify-content-center">
+              <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                <?php echo "Enter correct semester"; ?>
+              </div>
+              <!--first warning container--->
+            </div>
+            <!---second warning container--->
           <?php }
-        } else {//second if else?> 
+        } else { //second if else
+          ?>
           <div class="container d-flex justify-content-center">
-          <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
-                  <?php echo 'Search a semester first'; ?>
+            <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+              <?php echo 'Search a semester first'; ?>
+            </div>
           </div>
-          </div>
-          
+
         <?php }
         ?>
         <?php
@@ -134,8 +143,8 @@ if (isset($_GET['sem'])) {
           $total = mysqli_num_rows($data);
           if ($total > 0) {
         ?>
-            <table class="table" style="text-align:center">
-              <thead>
+            <table class="table table-dark" style="text-align:center">
+              <thead class="thead-blue">
                 <tr>
                   <!---<th scope="col">Serial No.</th>--->
                   <th scope="col" style="text-align:center">Assignment Number</th>
@@ -149,7 +158,7 @@ if (isset($_GET['sem'])) {
 
               while ($result = mysqli_fetch_array($data)) {
               ?>
-                <tbody>
+                <tbody class="bg-light">
                   <tr>
                     <td><?php echo $result['ass_no']; ?></td>
 
