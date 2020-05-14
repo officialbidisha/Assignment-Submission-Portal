@@ -1,0 +1,10 @@
+.border-decoration{
+    margin:auto;
+    /*border-color: #007bff;*/
+    /*border-style: ridge;*/
+    background:#d2e8ff;
+    padding: 15px;
+    width: 75%;
+    box-shadow:  9px 9px 23px #b7cade, 
+             -9px -9px 23px #edffff;
+}

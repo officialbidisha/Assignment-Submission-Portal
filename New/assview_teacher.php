@@ -78,6 +78,7 @@ if (isset($_GET['sem'])) {
             </div>
             <!--container end---->
           </div>
+          <!--- form group centre---->
         </form>
         <?php
         if (isset($_GET["sem"]) && $_GET["sem"] != "") {
@@ -178,7 +179,7 @@ if (isset($_GET['sem'])) {
             } else {?>
                 <div class="container d-flex justify-content-center">
                 <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
-                <?php  echo 'No Submissions'; ?>
+                    <?php  echo 'No Submissions'; ?>
                 </div>
                 </div>
             <?php }
