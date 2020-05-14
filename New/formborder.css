@@ -2,9 +2,12 @@
     margin:auto;
     /*border-color: #007bff;*/
     /*border-style: ridge;*/
-    background:#d2e8ff;
+    border-radius: 31px;
+    background: #ededed;
+    box-shadow:  12px 12px 24px #cecece, 
+             -12px -12px 24px #ffffff;
+   
     padding: 15px;
     width: 75%;
-    box-shadow:  9px 9px 23px #b7cade, 
-             -9px -9px 23px #edffff;
+    
 }

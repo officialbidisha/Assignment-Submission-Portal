@@ -50,7 +50,7 @@ if (isset($_GET['sem'])) {
     <div id="wrapper" class="toggled">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
+                <li class="sidebar-brand"> <a href="firstteacher.php"> <?php echo $_SESSION['username'] ?> </a> </li>
                 <li> <a href="firstteacher.php">Dashboard</a> </li>
                 <li> <a href="assignmentinside.php">Assignments</a> </li>
                 <li> <a href="noticeview.php">Notices</a> </li>
@@ -115,56 +115,65 @@ if (isset($_GET['sem'])) {
                                     </select>
                                 </div>
                                 <div class="p-2"></div>
-                                <div class="text-center col-xs-6 ">
-                                    <button type="submit" name="uploadassignment" class="btn btn-primary">Upload</button>
-                                </div>
+                                <!----<div class="text-center col-xs-6 ">
+                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                </div>---->
                             </div>
                             <div class="p-2"></div>
                             <div class="border-decoration">
-                            <div class="form-group">
-                                <div class="row d-flex justify-content-center">
-                                    <label for="Assignment Number" class="col-xs-6">Number</label>
-                                    <div class="p-2"></div>
-                                    <input type="number" name="number" class="form-control col-xs-6 w-25" id="assignmentNo" aria-describedby="assignmentNoHelp" placeholder="Number">
+                                <div class="form-group">
+                                    <div class="row d-flex justify-content-center">
+                                        <label for="Assignment Number" class="col-xs-6">Number</label>
+                                        <div class="p-2"></div>
+                                        <input type="number" name="number" class="form-control col-xs-6 w-25" id="assignmentNo" aria-describedby="assignmentNoHelp" placeholder="Number">
+                                    </div>
+                                    <!---row end---->
                                 </div>
-                                <!---row end---->
-                            </div>
 
-                            <div class="form-group">
-                                <div class="row d-flex justify-content-center">
-                                    <label for="Assignment Name" class="col-xs-6">Name</label>
+                                <div class="form-group">
+                                    <div class="row d-flex justify-content-center">
+                                        <label for="Assignment Name" class="col-xs-6">Name</label>
                                         <div class="p-3"></div>
                                         <input type="text" name="name" class="form-control col-xs-6 w-25" id="assignmentName" placeholder=" Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row d-flex justify-content-center">
+                                        <label for="AssignmentLink">Link</label>
+                                        <div class="p-4"></div>
+                                        <input type="text" name="link" class="form-control col-xs-6 w-25" id="assignmentLink" placeholder="Link">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row d-flex justify-content-center">
+                                        <label for="AssignmentDate" class="col-xs-6">Date</label>
+                                        <div class="p-4"></div>
+                                        <input type="date" name="date" class="form-control col-xs-6 w-25" id="assignmentDate" placeholder="Date">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="row d-flex justify-content-center">
-                                <label for="AssignmentLink">Link</label>
-                                <div class="p-4"></div>
-                                    <input type="text" name="link" class="form-control col-xs-6 w-25" id="assignmentLink" placeholder="Link">
-                            
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row d-flex justify-content-center">
-                                <label for="AssignmentDate" class="col-xs-6" >Date</label>
-                                <div class="p-4"></div>
-                                <input type="date" name="date" class="form-control col-xs-6 w-25" id="assignmentDate" placeholder="Date">
-                                </div>        
-                            </div>
+                            <div class="p-2"></div>
                             <div class="d-flex justify-content-center">
-                            <button type="submit" name="upload" class="btn btn-primary">Confirm Upload</button>
-                            </div>
+                                <button type="submit" name="upload" class="btn btn-primary">Confirm Upload</button>
                             </div>
             </div>
             </form>
-    <?php
-                    } else { //first if else
-                        echo "Enter correct semester";
-                    }
-                } else { //second if else
-                    echo 'Search a semester first';
-                }
+        <?php
+                    } else { ?>
+            <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                    <?php echo "Enter correct semester"; ?>
+                </div>
+            </div>
+        <?php }
+                } else { ?>
+        <div class="container d-flex justify-content-center">
+            <div class="d-flex justify-content-center alert alert-primary" style="width:30%">
+                <?php echo 'Search a semester first'; ?>
+            </div>
+        </div>
+    <?php }
     ?>
     <?php
     if (isset($_POST['subject']) && isset($_POST['semester'])) {
@@ -177,10 +186,21 @@ if (isset($_GET['sem'])) {
         $data = mysqli_query($con, $query);
 
         if ($data) {
-            echo "Assignment Uploaded";
-        } else {
+    ?>
+            <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-success" style="width:30%">
+                    <?php echo "Assignment Uploaded"; ?>
+                </div>
+            </div>
+        <?php } else {
+        ?>
+            <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                    <?php echo "All Fields Required"; ?>
 
-            echo "All Fields Required";
+                </div>
+            </div>
+    <?php
         }
     }
     ?>
