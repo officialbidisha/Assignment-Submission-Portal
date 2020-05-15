@@ -110,6 +110,7 @@ if (isset($_GET['sem'])) {
           </div>
           </div>
           </div><!---end------>   
+          <div class="p-2"></div>
           <div class="d-flex justify-content-center">
           <button type="submit" name="upload" class="btn btn-primary">View</button>
           </div>
@@ -117,13 +118,23 @@ if (isset($_GET['sem'])) {
       </form>
     <?php
               }
-              else{//first if else
-                echo "Enter correct semester";
-            }  
+              else{?>
+                <div class="p-2"></div>
+                <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                <?php echo "Enter correct semester"; ?>
+                </div>
+                </div>
+            <?php }  
         }
-        else{//second if else
-                echo 'Search a semester first';
-            }
+        else{?>
+                <div class="p-2"></div>
+                <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-info" style="width:30%">
+                <?php echo 'Search a semester first'; ?>
+                </div>
+                </div>
+            <?php }
     ?>
     <?php
       if (isset($_POST['subject']) && isset($_POST['semester'])) {
@@ -134,6 +145,7 @@ if (isset($_GET['sem'])) {
        $total=mysqli_num_rows($data);
       if ($total>0) {
     ?>
+                  <div class="p-2"></div>
                   <table class="table-design" style="text-align:center">
                         <thead class="table-dark bg-primary">
                                         <tr>
@@ -159,10 +171,15 @@ if (isset($_GET['sem'])) {
                               <?php
                                     }
                               }
-                              else{
-                                     echo 'No Submissions';
+                              else{?>
+                                     <div class="p-2"></div>
+                                    <div class="container d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center alert alert-info" style="width:30%">
+                                     <?php echo 'No Submissions'; ?>
+                                    </div>
+                                    </div>
 
-                              }
+                              <?php }
                           }
                     ?>
                   </table>

@@ -7,7 +7,7 @@
 td{ background-color:rgba(0,0,0,.075); border-left:1px solid rgb(161, 161, 161); border-right: 1px solid rgb(161,161,161);padding:  3px;
 text-align: center;}
 th{
-   
+    background-color:rgba(0,0,0,.075);
     text-align: center;
     padding: 15px;
 }

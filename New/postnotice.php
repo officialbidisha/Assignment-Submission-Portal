@@ -51,10 +51,10 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
         <li> <a href="#">Contact</a> </li>
       </ul>
     </div> <!-- /#sidebar-wrapper -->
-    <div class="container">
-      <div class="p-4"></div>
+    <div class="container mt-3 custom-form-container" style="width:1000px; margin:0 auto;">
+      
       <h3 style="text-align:center"> ADD NOTICE</h3>
-      <form class="form-inline">
+      <form  class="form-inline" >
         <div class="form-group">
           <label for="sem">Semester</label>
           <div class="mr-1"></div>
@@ -62,11 +62,12 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
         </div>
         <div class="mr-3"></div>
         <button type="submit" class="btn btn-primary">Search</button>
-        
+
       </form>
+      
       <div class="p-2"></div>
       <?php
-      if (isset($_GET["sem"])) {
+      if (isset($_GET["sem"]) && $_GET["sem"] != "") {
 
       ?>
         <form action="" method="post">
@@ -94,12 +95,11 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
             </select>
 
           </div>
+          <div class="form-group">
+          <label for="No.">Number</label>
+          <input type="text" name="noticenum" class="form-control w-25" aria-describedby="studyMaterialTopicHelp" placeholder="Number" required>
+        </div>
 
-        <?php
-      } else {
-        //echo 'Search a semester first';
-      }
-        ?>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Write Notice</label>
           <textarea class="form-control rounded-0" name="file" id="exampleFormControlTextarea1" rows="8"></textarea>
@@ -109,27 +109,60 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
         </form>
         <?php
 
-        $subject = isset($_POST['subject']) ? $_POST['subject'] : '';
-        $file = isset($_POST['file']) ? $_POST['file'] : '';
 
-        if (isset($_POST['post'])) {
+        if (isset($_POST['post']) && isset($_POST['noticenum']) && isset($_POST['subject']) && isset($_POST['file'])) {
+          $noticenum = $_POST['noticenum'];
+          $subject = $_POST['subject'];
+          $file = $_POST['file'];
           $sem_sub = $_POST["semester"];
           date_default_timezone_set('Indian/Antananarivo');
           $date = date("Y/m/d");
           if ($sem_sub != "" &&  $file != "" && $subject != "") {
-            $query = "INSERT INTO notice(sem,file,subject,date) VALUES('$sem_sub','$file','$subject','$date')";
+            $query = "INSERT INTO notice(notice_num,sem,file,subject,notice_date) VALUES ('$noticenum', '$sem_sub', '$file', '$subject', '$date')";
             $data = mysqli_query($con, $query);
 
-            if ($data) {
-              echo "Notice Posted";
-            }
-          } else {
-            echo "All fields required $sem_sub,$file,$subject";
-          }
+            if ($data) { ?>
+              <div class="p-2"></div>
+              <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-success" style="width:30%">
+                  <?php echo "Notice Posted"; ?>
+                </div>
+              </div>
+            <?php } else { ?>
+              <div class="p-2"></div>
+              <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                  <?php echo "Incorrect format"; ?>
+                </div>
+              </div>
+            <?php }
+          } else { ?>
+            <div class="p-2"></div>
+            <div class="container d-flex justify-content-center">
+              <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                <?php echo "All fields required"; ?>
+              </div>
+            </div>
+        <?php }
         }
         ?>
+
+        <?php
+      } else { ?>
+          <div class="p-2"></div>
+          <div class="container d-flex">
+            <div class="d-flex  alert alert-info" style="width:30%">
+
+              <?php echo 'Search a semester first'; ?>
+            </div>
+          </div>
+        <?php }
+        ?>
+       
     </div>
-  </div><!---Wrapper toggled--->
+    <!---CONTAINER---->
+  </div>
+  <!---Wrapper toggled--->
 </body>
 
 </html>
