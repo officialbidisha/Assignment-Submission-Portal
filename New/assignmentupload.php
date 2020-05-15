@@ -61,7 +61,7 @@ if (isset($_GET['sem'])) {
         <div id="page-content-wrapper">
             <div class="container mt-3 custom-form-container " style="width:1000px; margin:0 auto;">
                 <center>
-                    <h3>Upload Assignment</h3>
+                    <h2>Upload Assignment</h2>
                 </center>
                 <form>
                     <div class="form-group text-center">
@@ -88,12 +88,13 @@ if (isset($_GET['sem'])) {
                 ?>
                         <form action="" method="post">
                             <input name="semester" value="<?php echo $_GET["sem"]; ?>" type="hidden">
+                            <div class="border-decoration">
                             <div class="row d-flex justify-content-center">
                                 <div class="text-center ">
                                     <label for="exampleFormControlSelect1">Select</label>
                                 </div>
                                 <div class="p-3"></div>
-                                <div class=" form-group col-xs-6 w-25">
+                                <div class=" form-group col-xs-6 w-50">
                                     <select class="form-control" name="subject">
                                         <!---the subject is the variable where the selected item is stored-->
 
@@ -114,13 +115,13 @@ if (isset($_GET['sem'])) {
 
                                     </select>
                                 </div>
-                                <div class="p-2"></div>
+                                
                                 <!----<div class="text-center col-xs-6 ">
                                     <button type="submit" class="btn btn-primary">Upload</button>
                                 </div>---->
                             </div>
                             <div class="p-2"></div>
-                            <div class="border-decoration">
+                            
                                 <div class="form-group">
                                     <div class="row d-flex justify-content-center">
                                         <label for="Assignment Number" class="col-xs-6">Number</label>

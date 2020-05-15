@@ -62,7 +62,9 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
         </div>
         <div class="mr-3"></div>
         <button type="submit" class="btn btn-primary">Search</button>
+        
       </form>
+      <div class="p-2"></div>
       <?php
       if (isset($_GET["sem"])) {
 
@@ -71,7 +73,7 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
           <input name="semester" value="<?php echo $_GET["sem"]; ?>" type="hidden">
           <div class="form-group">
             <label for="exampleFormControlSelect1">Select</label>
-            <select class="form-control" name="subject">
+            <select class="form-control w-50" name="subject">
               <!---the subject is the variable where the selected item is stored-->
 
 

@@ -167,7 +167,7 @@ if (isset($_GET['sem'])) {
               ?>
                 <tbody class="table-design">
                   <tr>
-                    <td><?php echo $result['ass_no']; ?></td>
+                    <th scope="row"><?php echo $result['ass_no']; ?></td>
 
                     <td><?php echo $result['link']; ?></td>
                     <td><?php echo $result['submit_date']; ?></td>
