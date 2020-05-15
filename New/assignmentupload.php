@@ -187,7 +187,8 @@ if (isset($_GET['sem'])) {
 
         if ($data) {
     ?>
-            <div class="container d-flex justify-content-center">
+          <div class="p-2"></div>
+          <div class="container d-flex justify-content-center">
                 <div class="d-flex justify-content-center alert alert-success" style="width:30%">
                     <?php echo "Assignment Uploaded"; ?>
                 </div>
