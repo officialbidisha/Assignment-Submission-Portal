@@ -64,3 +64,9 @@ a{
 .card-silverish-black .custom-card-banner{
     background-color:#a8abb0;
 }
+.card-addsubject .custom-card-banner{
+    background-color: #78dd68;
+}
+.card-deletesubject .custom-card-banner{
+background-color:#ff8d8d;
+}
