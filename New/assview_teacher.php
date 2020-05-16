@@ -50,6 +50,7 @@ if (isset($_GET['sem'])) {
       <ul class="sidebar-nav">
         <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
         <li> <a href="firstteacher.php">Dashboard</a> </li>
+        <li> <a href="subjects.php">Subjects</a> </li>
         <li> <a href="assignmentinside.php">Assignments</a> </li>
         <li> <a href="noticeview.php">Notices</a> </li>
         <li> <a href="studyupload.php">Study Material</a> </li>
