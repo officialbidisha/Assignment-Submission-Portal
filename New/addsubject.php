@@ -105,12 +105,22 @@ else
           if ($subject != "") {
             $query = "INSERT INTO sem_subject values($sem,'$subject','$username')";
             $data = mysqli_query($con, $query);
-            if ($data) {
-              echo "Subject added successfully";
-            }
-          } else {
-            echo "Select a subject First";
-          }
+            if ($data) {?>
+            <div class="p-2"></div>
+            <div class="container d-flex justify-content-center">
+            <div class="d-flex justify-content-center alert alert-success" style="width:30%">
+              <<?php echo "Subject added successfully"; ?>
+            </div>
+            </div>
+            <?php }
+          } else {?>
+          <div class="p-2"></div>
+          <div class="container d-flex justify-content-center">
+          <div class="d-flex justify-content-center alert alert-success" style="width:30%">
+          <?php echo "Select a subject First";?>
+          </div>
+          </div>
+          <?php }
         }
 
 

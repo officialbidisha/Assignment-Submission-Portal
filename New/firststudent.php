@@ -6,7 +6,7 @@
             $semester=$_SESSION['sem'];
          }
         else
-                header( "refresh:2; url=login_teacher.php" );
+                header( "refresh:2; url=login_student.php" );
        
         
 ?>
@@ -21,39 +21,90 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="navigation.js"></script>
+        <link rel="stylesheet" href="cardstyles.css">
+        <link href="navigation.css" rel="stylesheet" id="naviagtion-css">
+
+        <style>
+                body {
+                        background-color: #ededed;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                }
+        </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" href="#">Student Dashboard</a>
-    </li>
-  </ul>
-</nav>
-<center><h1><?php echo "Welcome ".$_SESSION['username'];?></h1></center>
-<span class="border border-dark">
-<div class="row">
-            <div class="pl-5"></div>
-            <div class="col-sm">
-                    <div class="card" style="width: 25rem; height:15rem">
-                            <a href="noticeview.php"><img class="card-img-top" src="notice.jpg" height="290rem" alt="Notice image cap" width="400px"></a>
-                    </div>
-            </div>
-            <div class="col-sm">
-                    <div class="card" style="width: 25rem; height:15rem">
-                    <a href="assignmentsubmit.php"><img class="card-img-top" src="assignment.jpg" height="290rem" alt="Assignment image cap" width="400px"></a>
-                    </div>
-            </div>
-            <div class="col-sm">
-                    <div class="card" style="width: 25rem; height:15rem">
-                            <a href="studyview.php"><img class="card-img-top" src="study-material.jpg" height="290rem" alt="Study Material image cap" style="width:400px"></a>
-                            
-                    </div>
-            </div>
-            
-                
-</div>
-</span>
 
+<nav class="navbar navbar-expand navbar-dark bg-primary fixed-top"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse" id="navbarsExample02">
+                        <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active"> <a class="nav-link" href="firstteacher.php">Dashboard</a> </li>
+                        </ul>
+                        <form class="form-inline my-2 my-md-0"> </form>
+                </div>
+</nav>
+<div id="wrapper" class="toggled">
+                <div id="sidebar-wrapper">
+                        <ul class="sidebar-nav">
+                                <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
+                                <li> <a href="firstteacher.php">Dashboard</a> </li>
+                                <li> <a href="assignmentinside.php">Assignments</a> </li>
+                                <li> <a href="noticeview.php">Notices</a> </li>
+                                <li> <a href="studyupload.php">Study Material</a> </li>
+                                <li> <a href="#">Contact</a> </li>
+                        </ul>
+                </div> <!-- /#sidebar-wrapper -->
+                <div id="page-content-wrapper">
+                <div class="container">
+                
+                <h2 style="text-align:center"><?php echo "Welcome ";?></h2>
+                <div class="p-2"></div>
+                <div class="container row ">
+                                <div class="col-md-4">
+                                        <a href="noticeview.php">
+                                                <div class="custom-card card-dark-brown" style="background-image:url('studentnotice.jpg')">
+
+
+                                                        <div class="custom-card-banner ">
+                                                                <h4>Notices</h4>
+
+                                                        </div>
+                                                </div>
+                                        </a>
+                                </div>
+                                <div class="col-md-4">
+                                        <a href="istudent.php">
+                                                <div class="custom-card card-dark-blue" style="background-image:url('studentassignment.jpg')">
+
+
+                                                        <div class="custom-card-banner ">
+                                                                <h4>Assignments</h4>
+
+                                                        </div>
+                                                </div>
+                                        </a>
+                                </div>
+                                <div class="col-md-4">
+                                        <a href="studyview.php">
+                                                <div class="custom-card card-studentstudy" style="background-image:url('studentstudymaterial.jpg')">
+
+
+                                                        <div class="custom-card-banner ">
+                                                                <h4>Study Material</h4>
+
+                                                        </div>
+                                                </div>
+                                        </a>
+                                </div>
+                                
+
+
+
+                </div><!---container row---->
+            
+                </div><!---container--->
+                </div><!---page content wrapper--->       
+</div><!---toggled---->
 </body>
 </html>

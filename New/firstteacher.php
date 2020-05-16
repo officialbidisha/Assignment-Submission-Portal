@@ -61,7 +61,7 @@ if (isset($_GET['semester'])) {
                 <div id="page-content-wrapper">
                 <div class="container">
                 <center>
-                                        <h1><?php echo "Welcome "; ?></h1>
+                                        <h2><?php echo "Welcome "; ?></h2>
                 </center>
                 <div class="container row ">
                                 <div class="col-md-4">
@@ -104,10 +104,11 @@ if (isset($_GET['semester'])) {
 
 
 
-                </div>
+                </div><!---container row---->
                 <div class="p-5"></div>
                 </div><!----end of container class---->
                 </div><!---end of page content wrapper---->
+                </div><!---toggled---->
                 </body>
 
 </html>
