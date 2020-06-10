@@ -11,7 +11,7 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>Post Notice</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -54,7 +54,7 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
     </div> <!-- /#sidebar-wrapper -->
     <div class="container mt-3 custom-form-container" style="width:1000px; margin:0 auto;">
       
-      <h3 style="text-align:center"> ADD NOTICE</h3>
+      <h2 style="text-align:center"> ADD NOTICE</h3>
       <form  class="form-inline" >
         <div class="form-group">
           <label for="sem">Semester</label>
@@ -126,7 +126,7 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
               <div class="p-2"></div>
               <div class="container d-flex justify-content-center">
                 <div class="d-flex justify-content-center alert alert-success" style="width:30%">
-                  <?php echo "Notice Posted"; ?>
+                  <?php echo "Notice Posted on $date"; ?>
                 </div>
               </div>
             <?php } else { ?>
