@@ -155,17 +155,27 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
                                     
                                     $query="DELETE from notice where sem='$sem_sub' AND subject='$subject' AND notice_num='$number'";
                                     $run_subject=mysqli_query($con,$query);
-                                    if($run_subject){
-                                      echo "Notice deleted";
-                                    }
+                                    if($run_subject){?>
+                                       <div class="p-2"></div>
+                                      <div class="container d-flex">
+                                      <div class="d-flex  alert alert-success" style="width:30%">
+                                      <?php    echo "Notice Deleted"; ?>
+                                      </div>
+                                      </div>
+                                    <?php }
                                     else{
                                       echo "error.".mysqli_error($con);
 
                                     }
                               }
-                              else{
-                                echo "All fields required";
-                              }
+                              else{?>
+                                     <div class="p-2"></div>
+                                      <div class="container d-flex">
+                                      <div class="d-flex  alert alert-info" style="width:30%">
+                                      <?php    echo "All Fields required"; ?>
+                                      </div>
+            </div>
+                              <?php }
                       }
                 ?>
                <?php }

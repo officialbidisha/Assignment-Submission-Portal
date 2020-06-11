@@ -70,7 +70,7 @@ if (isset($_GET['sem'])) {
                         <div class="form-group text-center">
                             <div class="container">
                                 <div class="row d-flex justify-content-center">
-
+                                    &nbsp &nbsp &nbsp &nbsp
                                     <label for="sem">Semester</label>
                                     <div class="p-2"></div>
                                     <input id="semsub" type="number" class="form-control w-25 col-xs-6" id="num" value="<?php echo $sem_sub; ?>" name="sem" aria-describedby="semester" placeholder="Enter Semester">
