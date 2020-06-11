@@ -52,6 +52,7 @@ if (isset($_GET['semester'])) {
                         <ul class="sidebar-nav">
                                 <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
                                 <li> <a href="firstteacher.php">Dashboard</a> </li>
+                                <li> <a href="subjects.php">Subjects</a> </li>
                                 <li> <a href="assignmentinside.php">Assignments</a> </li>
                                 <li> <a href="noticeview.php">Notices</a> </li>
                                 <li> <a href="studyupload.php">Study Material</a> </li>
@@ -61,7 +62,7 @@ if (isset($_GET['semester'])) {
                 <div id="page-content-wrapper">
                 <div class="container">
                 <center>
-                                        <h1><?php echo "Welcome "; ?></h1>
+                                        <h2><?php echo "Welcome "; ?></h2>
                 </center>
                 <div class="container row ">
                                 <div class="col-md-4">
@@ -104,10 +105,11 @@ if (isset($_GET['semester'])) {
 
 
 
-                </div>
+                </div><!---container row---->
                 <div class="p-5"></div>
                 </div><!----end of container class---->
                 </div><!---end of page content wrapper---->
+                </div><!---toggled---->
                 </body>
 
 </html>

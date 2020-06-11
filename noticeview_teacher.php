@@ -1,12 +1,11 @@
 <?php
 session_start();
 include("../includes/db.php");
-error_reporting(0);
 if (isset($_SESSION['username'])) {
   $username = $_SESSION['username']; //has to be logged in
-  $semester = $_SESSION['sem'];
+
 } else
-  header("refresh:2; url=login_student.php");
+  header("refresh:2; url=login_teacher.php");
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +23,6 @@ if (isset($_SESSION['username'])) {
   <link href="navigation.css" rel="stylesheet" id="naviagtion-css">
   <link rel="stylesheet" href="cardstyles.css">
   <link rel="stylesheet" href="tablestyle.css">
-  <link rel="stylesheet" href="formborder.css">
   <style>
     body {
       background-color: #ededed;
@@ -33,6 +31,7 @@ if (isset($_SESSION['username'])) {
       background-size: contain;
     }
   </style>
+
 </head>
 
 <body>
@@ -47,7 +46,7 @@ if (isset($_SESSION['username'])) {
   <div id="wrapper" class="toggled">
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <li class="sidebar-brand"> <a href="firstteacher.php"> <?php echo $_SESSION['username'] ?> </a> </li>
+        <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
         <li> <a href="firstteacher.php">Dashboard</a> </li>
         <li> <a href="assignmentinside.php">Assignments</a> </li>
         <li> <a href="noticeview.php">Notices</a> </li>
@@ -57,23 +56,18 @@ if (isset($_SESSION['username'])) {
     </div> <!-- /#sidebar-wrapper -->
     <div id="page-content-wrapper">
       <div class="container mt-3 custom-form-container " style="width:1000px; margin:0 auto;">
-        <center>
-          <h2>View Assignment</h2>
-        </center>
         <form action=" " method="post">
-
+          <h2 style="text-align:center">View Notice</h2>
+          <div class="p-2"></div>
           <!-----<form>------>
-          <div class="form-group">
-            <div class="row d-flex justify-content-center">
-              <div class="text-center ">
+          <div class="form-group text-center">
+            <div class="container">
+              <div class="row d-flex justify-content-center">
                 <label for="subject">Subject</label>
-              </div>
-              <div class="p-3"></div>
-              <div class=" form-group col-xs-6 w-25">
-
-                <select class="form-control" id="subjectControlSelect1" name="subject">
+                <div class="p-2"></div>
+                <select class="form-control w-25 col-xs-6" id="subjectControlSelect1" name="subject">
                   <?php
-                  $get_subject = "select * from sem_subject where sem=$semester";
+                  $get_subject = "select * from sem_subject where teacher='$username'";
                   $run_subject = mysqli_query($con, $get_subject);
                   while ($row_subject = mysqli_fetch_array($run_subject)) {
                     $subject = $row_subject['subject'];
@@ -82,28 +76,30 @@ if (isset($_SESSION['username'])) {
 
                   ?>
                 </select>
+                <div class="p-2"></div>
+                <button type="submit" name="view" class="btn btn-primary  col-xs-6">View</button>
               </div>
-              <div class="p-2"></div>
-              <div class="text-center col-xs-6 ">
-                <button type="submit" name="view" class="btn btn-primary">View</button>
-              </div>
+              <!---row end----->
             </div>
+            <!---container-------->
+          </div>
+          <!---form group text-center--->
         </form>
         <?php
         if (isset($_POST['view']) && isset($_POST['subject'])) {
 
           $subject = $_POST['subject'];
-          $query = "SELECT * FROM assignment_new where subject='$subject'";
+          $query = "SELECT * FROM notice where subject='$subject' order by notice_date desc";
           $data = mysqli_query($con, $query);
           $total = mysqli_num_rows($data);
-          if ($total > 0) {
+          if ($total != 0) {
         ?>
-            <table class="table-design" style="text-align:center">
+            <table class="table -design">
               <thead class="table-dark bg-primary">
                 <tr>
                   <th scope="col">Serial No.</th>
                   <th scope="col">Date</th>
-                  <th scope="col">Assignment</th>
+                  <th scope="col">Notice</th>
                 </tr>
               </thead>
               <?php
@@ -113,33 +109,32 @@ if (isset($_SESSION['username'])) {
                 <tbody class="table-design">
                   <tr>
                     <th scope="row"><?php echo $counter++; ?></th>
-                    <td><?php echo $result['submit_date'] ?></td>
-                    <td><a href="<?php echo $result['link'] ?>">Click Here</a></td>
+                    <td><?php echo $result['notice_date'] ?></td>
+                    <td><?php echo $result['file'] ?></td>
 
                   </tr>
                 </tbody>
 
-          <?php
+              <?php
               }
-            } else {?>
+            } else { ?>
               <div class="p-2"></div>
               <div class="container d-flex justify-content-center">
-              <div class="d-flex justify-content-center alert alert-info" style="width:30%">
-              <?php echo "No Assignment Uploaded Yet";?>
+                <div class="d-flex justify-content-center alert alert-info" style="width:30%">
+                  <?php echo "No Notice Uploaded Yet"; ?>
+                </div>
               </div>
-              </div>
-            <?php }
+          <?php }
           }
           ?>
 
             </table>
 
       </div>
-      <!---container----->
     </div>
-    <!---page content wrapper---->
+    <!--page content wrapper---->
   </div>
-  <!---toggled----->
+  <!--toggled---->
 </body>
 
 </html>

@@ -62,23 +62,27 @@ if (isset($_GET['sem'])) {
         <div id="page-content-wrapper">
             <div class="container mt-3 custom-form-container " style="width:1000px; margin:0 auto;">
                 <center>
-                    <h2>Upload Assignment</h2>
+                    <h2>Delete Study Material</h2>
                 </center>
+                <div class="p-2"></div>
                 <form>
                     <div class="form-group text-center">
                         <div class="container">
                             <div class="row d-flex justify-content-center">
+                                &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
                                 <label for="sem">Semester</label>
                                 <div class="p-2"></div>
                                 <input id="semsub" type="number" class="form-control w-25 col-xs-6" id="num" value="<?php echo $sem_sub; ?>" name="sem" aria-describedby="semester" placeholder="Enter Semester">
                                 <div class="p-2"></div>
                                 <button type="submit" class="btn btn-primary col-xs-6">Search</button>
                             </div>
-                            <!---row end---------->
+                            <!--row----->
                         </div>
-                        <!---container end---->
+                        <!--container------>
                     </div>
-                    <!---form group center---->
+                    <!---form group----->
+
+
                 </form>
                 <?php
                 if (isset($_GET["sem"]) && $_GET['sem'] != "") {
@@ -87,15 +91,17 @@ if (isset($_GET['sem'])) {
 
                     if (mysqli_num_rows($run_subject) > 0) {
                 ?>
-                        <form action="" method="post">
+                        <form action="" method="post" class="form-inline">
+                            
                             <input name="semester" value="<?php echo $_GET["sem"]; ?>" type="hidden">
                             <div class="border-decoration">
                             <div class="row d-flex justify-content-center">
                                 <div class="text-center ">
-                                    <label for="exampleFormControlSelect1">Select</label>
+                                    <label for="exampleFormControlSelect1">Subject</label>
                                 </div>
-                                <div class="p-3"></div>
-                                <div class=" form-group col-xs-6 w-50">
+                                <div class="p-4"></div>
+                                <div class="form-group col-xs-6 w-50">
+
                                     <select class="form-control" name="subject">
                                         <!---the subject is the variable where the selected item is stored-->
 
@@ -115,105 +121,110 @@ if (isset($_GET['sem'])) {
                                         ?>
 
                                     </select>
+                                    <div class="mr-2"></div>
+                                    <div class="d-flex justify-content-center">
+                                    <button type="submit" name="upload" class="btn btn-primary">Select</button>
+                                    </div>
                                 </div>
-                                
-                                <!----<div class="text-center col-xs-6 ">
-                                    <button type="submit" class="btn btn-primary">Upload</button>
-                                </div>---->
+                                <div class='p-2'></div>
                             </div>
-                            <div class="p-2"></div>
                             
-                                <div class="form-group">
-                                    <div class="row d-flex justify-content-center">
-                                        <label for="Assignment Number" class="col-xs-6">Number</label>
-                                        <div class="p-2"></div>
-                                        <input type="number" name="number" class="form-control col-xs-6 w-25" id="assignmentNo" aria-describedby="assignmentNoHelp" placeholder="Number">
-                                    </div>
-                                    <!---row end---->
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row d-flex justify-content-center">
-                                        <label for="Assignment Name" class="col-xs-6">Name</label>
-                                        <div class="p-3"></div>
-                                        <input type="text" name="name" class="form-control col-xs-6 w-25" id="assignmentName" placeholder=" Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row d-flex justify-content-center">
-                                        <label for="AssignmentLink">Link</label>
-                                        <div class="p-4"></div>
-                                        <input type="text" name="link" class="form-control col-xs-6 w-25" id="assignmentLink" placeholder="Link">
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row d-flex justify-content-center">
-                                        <label for="AssignmentDate" class="col-xs-6">Date</label>
-                                        <div class="p-4"></div>
-                                        <input type="date" name="date" class="form-control col-xs-6 w-25" id="assignmentDate" placeholder="Date">
-                                    </div>
-                                </div>
-                            </div>
+                            </div><!---table decoration----->
                             <div class="p-2"></div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" name="upload" class="btn btn-primary">Confirm Upload</button>
-                            </div>
+                           
             </div>
             </form>
-        <?php
+            <div class="p-2"></div>
+    <?php
                     } else { ?>
-            <div class="container d-flex justify-content-center">
-                <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
-                    <?php echo "Enter correct semester"; ?>
+                    <div class="p-2"></div>
+                    <div class="container d-flex justify-content-center">
+                    <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                        <?php echo "Enter correct semester"; ?>
+                    </div>
+                    </div>
+                    <?php }
+                } else {?> 
+                <div class="p-2"></div>
+                <div class="container d-flex justify-content-center">
+                <div class="d-flex justify-content-center alert alert-primary" style="width:30%">
+                   <?php  echo 'Search a semester first'; ?>
                 </div>
-            </div>
-        <?php }
-                } else { ?>
-        <div class="container d-flex justify-content-center">
-            <div class="d-flex justify-content-center alert alert-primary" style="width:30%">
-                <?php echo 'Search a semester first'; ?>
-            </div>
-        </div>
-    <?php }
+                </div>
+                <?php }
     ?>
     <?php
     if (isset($_POST['subject']) && isset($_POST['semester'])) {
-        $subject = $_POST['subject'];
-        $number = $_POST['number'];
-        $name = $_POST['name'];
-        $date = $_POST['date'];
-        $link = $_POST['link'];
-        $query = "INSERT INTO assignment_new(ass_no,sem,subject,submit_date,link) VALUES('$number','$sem_sub','$subject','$date','$link')";
+
+        $subject=$_POST['subject'];
+        $query = "SELECT * FROM study_material where subject='$subject'";
         $data = mysqli_query($con, $query);
+        if(mysqli_num_rows($data)>0){?>
+        <form action="" method="post" class="form-inline">
+        <div class="border-decoration">
+        <div class="row d-flex justify-content-center">
+        <div class="text-center ">
+            <label for="exampleFormControlSelect1">Topic</label>
+        </div>
+        <div class="p-2"></div>
+        <div class="form-group col-xs-6 w-50">
+        <input type="hidden" name="semester" value="<?php echo $_POST['semester'] ?>">
+        <input type="hidden" name="subject" value="<?php echo $_POST['subject'] ?>">
+        <select class="form-control" name="name">
+        <?php
+         
+         while ($row_subject = mysqli_fetch_array($data)) {
 
-        if ($data) {
-    ?>
-          <div class="p-2"></div>
-          <div class="container d-flex justify-content-center">
-                <div class="d-flex justify-content-center alert alert-success" style="width:30%">
-                    <?php echo "Assignment Uploaded"; ?>
-                </div>
-            </div>
-        <?php } else {
-        ?>
-            <div class="container d-flex justify-content-center">
-                <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
-                    <?php echo "All Fields Required"; ?>
+                                            $name = $row_subject['name'];
+                                            echo "<option>$name</option>";
+                                        }
+                                        ?>
 
-                </div>
-            </div>
-    <?php
-        }
-    }
-    ?>
+                                    </select>
+                                    <div class="mr-2"></div>
+                                    <div class="d-flex justify-content-center">
+                                    <button type="submit" name="upload" class="btn btn-primary">Delete</button>
+                                    </div>
 
         </div>
-        <!---container mt-5----->
+        </div>
+        </div>
+        </form>
+        <?php } else { ?>
+            <div class="p-2"></div>
+            <div class="container d-flex justify-content-center">
+            <div class="d-flex justify-content-center alert alert-danger" style="width:30%">
+                <?php echo "No Study Materials";?>
+            </div>
+            </div>
+        <?php }
+    }
+    ?>
+    <?php
+        if (isset($_POST['subject']) && isset($_POST['semester']) && isset($_POST['name'])) {
+            $subject=$_POST['subject'];
+            $sem_sub=$_POST['semester'];
+            $name=$_POST['name'];
+            $query="DELETE FROM study_material where subject='$subject' AND sem='$sem_sub' AND name='$name'";
+            $query1=mysqli_query($con,$query);
+            if($query1){
+                            echo "Study Material deleted";
+            }
+            else{
+                    echo "No";
+            }
+        }
+        else{
+
+        }
+
+    ?>
+        </div>
+        <!--container mt-5----->
     </div>
-    <!---page content wrapper---->
+    <!----page content wrapper---->
     </div>
-    <!--div id wrapper toggled--->
+    <!---toggled-------->
 </body>
 
 </html>

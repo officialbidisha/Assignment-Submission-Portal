@@ -5,7 +5,7 @@ if (isset($_SESSION['username'])) {
         $username = $_SESSION['username']; //has to be logged in
 
 } else
-        header("refresh:2; url=login_teacher.php");
+        header("refresh:2; url=login_student.php");
 if (isset($_GET['semester'])) {
         $sem_sub = $_GET['sem'];
 }
@@ -55,10 +55,9 @@ if (isset($_GET['semester'])) {
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username']?> </a> </li>
                     <li> <a href="firstteacher.php">Dashboard</a> </li>
-                    <li> <a href="subjects.php">Subjects</a> </li>
                     <li> <a href="assignmentinside.php">Assignments</a> </li>
                     <li> <a href="noticeview.php">Notices</a> </li>
-                    <li> <a href="studyupload.php">Study Material</a></li>
+                    <li> <a href="studyupload.php">Study Material</a> </li>
                     <li> <a href="#">Contact</a> </li>
                 </ul>
             </div> <!-- /#sidebar-wrapper -->
@@ -70,44 +69,33 @@ if (isset($_GET['semester'])) {
                 
              <div class="p-3"></div>
                         <div class="container row ">
+                                <div class="col-sm-6">
+                                        <a href="assview_student.php">
+                                                <div class="custom-card card-seola" style="background-image:url('assignmentviewbystudent.png')">
 
-                                <div class="col-md-4">
-                                        <a href="assignmentupload.php">
-                                                <div class="custom-card card-bluish" style="background-image:url('upload1.png')">
+
+                                                        <div class="custom-card-banner">
+                                                                <h4> View Assignments</h3>
+
+                                                        </div>
+                                                </div>
+                                        </a>
+                                </div>
+
+                                <div class="col-sm-6">
+                                        <a href="assignmentsubmit.php">
+                                                <div class="custom-card card-silverish-black" style="background-image:url('submitting.jpg')">
 
 
                                                         <div class="custom-card-banner ">
-                                                                <h4>Upload</h3>
+                                                                <h4>Submit Assignments</h3>
 
                                                         </div>
                                                 </div>
                                         </a>
                                 </div>
 
-                                <div class="col-md-4">
-                                        <a href="assview_teacher.php">
-                                                <div class="custom-card card-red-azure" style="background-image:url('task.jpg')">
-
-
-                                                        <div class="custom-card-banner">
-                                                                <h4>Assignments</h3>
-
-                                                        </div>
-                                                </div>
-                                        </a>
-                                </div>
-
-                                <div class="col-md-4">
-                                        <a href="submissionreport.php">
-                                                <div class="custom-card card-blue" style="background-image:url('Report1.jpg')">
-                                                        <div class="custom-card-banner">
-                                                                <h4>Report</h3>
-
-                                                        </div>
-                                                </div>
-                                        </a>
-                                </div>
-
+                                
                         </div>
                         <div class="p-5"></div>    
                 </div><!---end of optional container--->    

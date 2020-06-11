@@ -58,7 +58,7 @@ if (isset($_GET['semester'])) {
                     <li> <a href="subjects.php">Subjects</a> </li>
                     <li> <a href="assignmentinside.php">Assignments</a> </li>
                     <li> <a href="noticeview.php">Notices</a> </li>
-                    <li> <a href="studyupload.php">Study Material</a></li>
+                    <li> <a href="studyupload.php">Study Material</a> </li>
                     <li> <a href="#">Contact</a> </li>
                 </ul>
             </div> <!-- /#sidebar-wrapper -->
@@ -69,45 +69,35 @@ if (isset($_GET['semester'])) {
              </center>
                 
              <div class="p-3"></div>
-                        <div class="container row ">
+                        <div class="container row d-flex justify-content-center">
+                           
+                                <div class="col-sm-5">
+                                        <a href="addsubject.php">
+                                                <div class="custom-card card-addsubject" style="background-image:url('add.png')">
 
-                                <div class="col-md-4">
-                                        <a href="assignmentupload.php">
-                                                <div class="custom-card card-bluish" style="background-image:url('upload1.png')">
+
+                                                        <div class="custom-card-banner">
+                                                                <h4> Add Subject </h3>
+
+                                                        </div>
+                                                </div>
+                                        </a>
+                                </div>
+                                <div class="p-2"></div>
+                                <div class="col-sm-5">
+                                        <a href="deletesubject.php">
+                                                <div class="custom-card card-deletesubject" style="background-image:url('delete.jpg')">
 
 
                                                         <div class="custom-card-banner ">
-                                                                <h4>Upload</h3>
+                                                                <h4>Delete Subject</h3>
 
                                                         </div>
                                                 </div>
                                         </a>
                                 </div>
 
-                                <div class="col-md-4">
-                                        <a href="assview_teacher.php">
-                                                <div class="custom-card card-red-azure" style="background-image:url('task.jpg')">
-
-
-                                                        <div class="custom-card-banner">
-                                                                <h4>Assignments</h3>
-
-                                                        </div>
-                                                </div>
-                                        </a>
-                                </div>
-
-                                <div class="col-md-4">
-                                        <a href="submissionreport.php">
-                                                <div class="custom-card card-blue" style="background-image:url('Report1.jpg')">
-                                                        <div class="custom-card-banner">
-                                                                <h4>Report</h3>
-
-                                                        </div>
-                                                </div>
-                                        </a>
-                                </div>
-
+                                
                         </div>
                         <div class="p-5"></div>    
                 </div><!---end of optional container--->    
