@@ -53,6 +53,7 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
   <div class="container mt-3 custom-form-container" style="width:1000px; margin:0 auto;">
   <div class="p-2"></div>
   <h3 style="text-align:center"> DELETE NOTICE </h3>
+  <div class="p-2"></div>
   <form  class="form-inline" >
         <div class="form-group">
           <label for="sem">Semester</label>
@@ -68,7 +69,6 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
         if(isset($_GET["sem"]) && $_GET["sem"]!=""){?>
         <form class="form-inline" method="post" action="">
           <div class="form-group">
-            
             <div class="mr-3"></div>
             <?php 
                   $sem_sub = $_GET["sem"];
@@ -76,18 +76,9 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
                   $run_subject = mysqli_query($con, $get_subject);
                   $num=mysqli_num_rows($run_subject);
                   if($num>0){
+                  
             ?>
-             <label for="subject">Subject</label>
-            <select class="form-control w-75" name="subject">
-            <?php
-                
-                while ($row_subject = mysqli_fetch_array($run_subject)) {
-                  $subject = $row_subject['subject'];
-                  echo "<option>$subject</option>";
-                }
-              
-            ?>
-            </select>
+            
             </div>
            
             <div class="mr-3"></div>
@@ -108,13 +99,7 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
           
         <div class="p-2"></div>
         <?php
-               if(isset($_POST["subject"]) && $_POST["subject"]!=""){
-                $sem_sub = $_GET["sem"];
-                $subject= $_POST["subject"];
-                $get_subject = "select * from notice where sem='$sem_sub' AND subject='$subject'";
-                $run_subject = mysqli_query($con, $get_subject);
-                if(mysqli_num_rows($run_subject)>0){
-                 ?>
+               if(isset($_POST["subject"]) && $_POST["subject"]!=""){?>
                 <form class="form-inline" method="post" action="">
                   <div class="form-group">
                     <label for="number">Number</label>
@@ -122,7 +107,11 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
                     <input type="hidden" name="subject" value="<?php echo $_POST["subject"]; ?>">
                     <select class="form-control" name="number">
                     <?php
-                      while ($row_subject = mysqli_fetch_array($run_subject)) {  
+                        $sem_sub = $_GET["sem"];
+                        $subject= $_POST["subject"];
+                        $get_subject = "select * from notice where sem='$sem_sub' AND subject='$subject'";
+                        $run_subject = mysqli_query($con, $get_subject);
+                        while ($row_subject = mysqli_fetch_array($run_subject)) {
                           $number = $row_subject['notice_num'];
                           echo "<option>$number</option>";
                         }
@@ -132,19 +121,6 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
                   <div class="mr-3"></div>
                   <button type="submit" class="btn btn-primary">Delete</button>
                 </form><!----Number form ends---->
-                <?php }
-                      else{
-                                        ?>
-                            <div class="p-2"></div>
-                            <div class="container d-flex">
-                            <div class="d-flex  alert alert-info" style="width:30%">
-                            <?php    echo "No Notices found"; ?>
-                            </div>
-                            </div>
-                      <?php }
-  
-                ?>
-
                 <div class="p-2"></div>
   <?php
                       if(isset($_POST["number"]) && ($_POST["number"] != "")){
@@ -155,27 +131,33 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
                                     
                                     $query="DELETE from notice where sem='$sem_sub' AND subject='$subject' AND notice_num='$number'";
                                     $run_subject=mysqli_query($con,$query);
-                                    if($run_subject){?>
-                                       <div class="p-2"></div>
-                                      <div class="container d-flex">
-                                      <div class="d-flex  alert alert-success" style="width:30%">
-                                      <?php    echo "Notice Deleted"; ?>
-                                      </div>
-                                      </div>
-                                    <?php }
+                                    if($run_subject){
+                                      echo "Notice deleted";
+                                    }
                                     else{
                                       echo "error.".mysqli_error($con);
 
                                     }
                               }
                               else{?>
-                                     <div class="p-2"></div>
-                                      <div class="container d-flex">
-                                      <div class="d-flex  alert alert-info" style="width:30%">
-                                      <?php    echo "All Fields required"; ?>
-                                      </div>
-            </div>
+                                <div class="p-2"></div>
+                                <div class="container d-flex">
+                                <div class="d-flex  alert alert-danger" style="width:30%">
+                                <?php echo "All fields required"; ?>
+                                </div>
+                                </div>
                               <?php }
+                      }
+                      else{
+                       
+                        ?>
+                        <div class="p-2"></div>
+                        <div class="container d-flex">
+                        <div class="d-flex  alert alert-danger" style="width:30%">
+                        <?php echo "No Notice Present"; ?>
+                        </div>
+                        </div>
+                        <?php 
                       }
                 ?>
                <?php }

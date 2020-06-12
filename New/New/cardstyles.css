@@ -70,13 +70,3 @@ a{
 .card-deletesubject .custom-card-banner{
 background-color:#ff8d8d;
 }
-.card-viewnotice .custom-card-banner{
-    background-color: #ef4950;
-}
-.card-addnotice .custom-card-banner{
-    background-color: #205392;
-}
-.card-deletenotice .custom-card-banner
-{
-    background-color:#ec004e;
-}
