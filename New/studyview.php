@@ -49,7 +49,7 @@
         <li> <a href="assignmentinside.php">Assignments</a> </li>
         <li> <a href="noticeview.php">Notices</a> </li>
         <li> <a href="studyupload.php">Study Material</a> </li>
-        <li> <a href="#">Contact</a> </li>
+        <li> <a href="logout_student.php">Logout</a> </li>
       </ul>
 </div> <!-- /#sidebar-wrapper -->
 <div id="page-content-wrapper">

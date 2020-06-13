@@ -38,7 +38,7 @@ if (isset($_SESSION['username'])) {
   <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarsExample02">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active"> <a class="nav-link" href="firstteacher.php">Dashboard</a> </li>
+        <li class="nav-item active"> <a class="nav-link" href="firststudent.php">Dashboard</a> </li>
       </ul>
       <form class="form-inline my-2 my-md-0"> </form>
     </div>
@@ -47,11 +47,11 @@ if (isset($_SESSION['username'])) {
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
-        <li> <a href="firstteacher.php">Dashboard</a> </li>
+        <li> <a href="firststudent.php">Dashboard</a> </li>
         <li> <a href="assignmentinside.php">Assignments</a> </li>
         <li> <a href="noticeview.php">Notices</a> </li>
         <li> <a href="studyupload.php">Study Material</a> </li>
-        <li> <a href="#">Contact</a> </li>
+        <li> <a href="logout_student.php">Logout</a> </li>
       </ul>
     </div> <!-- /#sidebar-wrapper -->
     <div id="page-content-wrapper">

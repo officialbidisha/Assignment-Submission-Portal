@@ -15,7 +15,7 @@ if (isset($_GET['semester'])) {
 <html lang="en">
 
 <head>
-        <title>Bootstrap Example</title>
+        <title>Teacher Page</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -49,15 +49,15 @@ if (isset($_GET['semester'])) {
         <div id="wrapper" class="toggled">
                 <!-- Sidebar -->
                 <div id="sidebar-wrapper">
-                        <ul class="sidebar-nav">
-                                <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username'] ?> </a> </li>
-                                <li> <a href="firstteacher.php">Dashboard</a> </li>
-                                <li> <a href="subjects.php">Subjects</a> </li>
-                                <li> <a href="assignmentinside.php">Assignments</a> </li>
-                                <li> <a href="noticeview.php">Notices</a> </li>
-                                <li> <a href="studyupload.php">Study Material</a> </li>
-                                <li> <a href="#">Contact</a> </li>
-                        </ul>
+                <ul class="sidebar-nav">
+                        <li class="sidebar-brand"> <a href="firstteacher.php"> <?php echo $_SESSION['username'] ?> </a> </li>
+                        <li> <a href="firstteacher.php">Dashboard</a> </li>
+                        <li> <a href="subjects.php">Subjects</a> </li>
+                        <li> <a href="assignmentinside.php">Assignments</a> </li>
+                        <li> <a href="noticeinside.php">Notices</a> </li>
+                        <li> <a href="studyinside.php">Study Material</a> </li>
+                        <li> <a href="logout_teacher.php">Logout</a> </li>
+                </ul>
                 </div> <!-- /#sidebar-wrapper -->
                 <div id="page-content-wrapper">
                 <div class="container">
@@ -66,7 +66,7 @@ if (isset($_GET['semester'])) {
                 </center>
                 <div class="container row ">
                                 <div class="col-md-4">
-                                        <a href="postnotice.php">
+                                        <a href="noticeinside.php">
                                                 <div class="custom-card card-brick" style="background-image:url('notice1.jpg')">
 
 
@@ -90,7 +90,7 @@ if (isset($_GET['semester'])) {
                                         </a>
                                 </div>
                                 <div class="col-md-4">
-                                        <a href="studyupload.php">
+                                        <a href="studyinside.php">
                                                 <div class="custom-card card-reddish" style="background-image:url('study-material.jpg')">
 
 

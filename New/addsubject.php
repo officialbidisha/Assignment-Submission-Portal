@@ -10,7 +10,7 @@ else
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>Add Subject</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -48,9 +48,9 @@ else
         <li> <a href="firstteacher.php">Dashboard</a> </li>
         <li> <a href="subjects.php">Subjects</a> </li>
         <li> <a href="assignmentinside.php">Assignments</a> </li>
-        <li> <a href="noticeview.php">Notices</a> </li>
-        <li> <a href="studyupload.php">Study Material</a> </li>
-        <li> <a href="#">Contact</a> </li>
+        <li> <a href="noticeinside.php">Notices</a> </li>
+        <li> <a href="studyinside.php">Study Material</a> </li>
+        <li> <a href="logout_teacher.php">Logout</a> </li>
       </ul>
     </div> <!-- /#sidebar-wrapper -->
     <div id="page-content-wrapper">

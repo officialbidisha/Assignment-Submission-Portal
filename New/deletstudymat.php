@@ -49,15 +49,15 @@ if (isset($_GET['sem'])) {
     </nav>
     <div id="wrapper" class="toggled">
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"> <a href="firstteacher.php"> <?php echo $_SESSION['username'] ?> </a> </li>
-                <li> <a href="firstteacher.php">Dashboard</a> </li>
-                <li> <a href="subjects.php">Subjects</a> </li>
-                <li> <a href="assignmentinside.php">Assignments</a> </li>
-                <li> <a href="noticeview.php">Notices</a> </li>
-                <li> <a href="studyupload.php">Study Material</a> </li>
-                <li> <a href="#">Contact</a> </li>
-            </ul>
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"> <a href="firstteacher.php"> <?php echo $_SESSION['username'] ?> </a> </li>
+            <li> <a href="firstteacher.php">Dashboard</a> </li>
+            <li> <a href="subjects.php">Subjects</a> </li>
+            <li> <a href="assignmentinside.php">Assignments</a> </li>
+            <li> <a href="noticeinside.php">Notices</a> </li>
+            <li> <a href="studyinside.php">Study Material</a> </li>
+            <li> <a href="logout_teacher.php">Logout</a> </li>
+        </ul>
         </div> <!-- /#sidebar-wrapper -->
         <div id="page-content-wrapper">
             <div class="container mt-3 custom-form-container " style="width:1000px; margin:0 auto;">
@@ -70,7 +70,7 @@ if (isset($_GET['sem'])) {
                         <div class="form-group text-center">
                             <div class="container">
                                 <div class="row d-flex justify-content-center">
-                                    &nbsp &nbsp &nbsp &nbsp
+                                   
                                     <label for="sem">Semester</label>
                                     <div class="p-2"></div>
                                     <input id="semsub" type="number" class="form-control w-25 col-xs-6" id="num" value="<?php echo $sem_sub; ?>" name="sem" aria-describedby="semester" placeholder="Enter Semester">
@@ -93,12 +93,13 @@ if (isset($_GET['sem'])) {
                             <form action="" method="post" class="form-inline">
 
                                 <input name="semester" value="<?php echo $_GET["sem"]; ?>" type="hidden">
-                                <div class="form-inline" style="margin:auto">
+                                <div class="container" style="margin:auto">
                                     <div class="row d-flex justify-content-center">
-                                        <div class="text-center ">
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                        <div class="text-center form-group">
                                             <label for="exampleFormControlSelect1">Subject</label>
                                         </div>
-                                        <div class="p-4"></div>
+                                        <div class="mr-3"></div>
                                         <div class="form-group col-xs-6 w-50">
 
                                             <select class="form-control" name="subject">
@@ -156,8 +157,8 @@ if (isset($_GET['sem'])) {
             if (mysqli_num_rows($data) > 0) { ?>
                 <form action="" method="post" class="form-inline">
                     <div class="form-inline" style="margin:auto">
-                        <div class="row d-flex justify-content-center">
-                            <div class="text-center ">
+                        <div class="row d-flex justify-content-center form-inline">
+                            <div class="text-center form-inline ">
                                 <label for="exampleFormControlSelect1">Topic</label>
                             </div>
                             <div class="p-2"></div>
@@ -174,10 +175,7 @@ if (isset($_GET['sem'])) {
                                 
                                 
                             </div>
-                            <div class="mr-2"></div>
-                            <div class="d-flex col-xs-6 justify-content-center">
-                                    <button type="submit" name="upload" class="btn btn-primary">Delete</button>
-                            </div>
+                                        
                         </div><!---row end--->
                     </div> 
                 </form>

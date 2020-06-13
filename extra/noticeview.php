@@ -3,9 +3,9 @@ session_start();
 include("../includes/db.php");
 if (isset($_SESSION['username'])) {
   $username = $_SESSION['username']; //has to be logged in
-
+  $semester = $_SESSION['sem'];
 } else
-  header("refresh:2; url=login_teacher.php");
+  header("refresh:2; url=login_student.php");
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ if (isset($_SESSION['username'])) {
   <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top"> <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class="navbar-toggler-icon"></span></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarsExample02">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active"> <a class="nav-link" href="firstteacher.php">Dashboard</a> </li>
+        <li class="nav-item active"> <a class="nav-link" href="firststudent.php">Dashboard</a> </li>
       </ul>
       <form class="form-inline my-2 my-md-0"> </form>
     </div>
@@ -67,7 +67,7 @@ if (isset($_SESSION['username'])) {
                 <div class="p-2"></div>
                 <select class="form-control w-25 col-xs-6" id="subjectControlSelect1" name="subject">
                   <?php
-                  $get_subject = "select * from sem_subject where teacher='$username'";
+                  $get_subject = "select * from sem_subject where sem=$semester";
                   $run_subject = mysqli_query($con, $get_subject);
                   while ($row_subject = mysqli_fetch_array($run_subject)) {
                     $subject = $row_subject['subject'];

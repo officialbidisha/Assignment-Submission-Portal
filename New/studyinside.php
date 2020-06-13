@@ -5,7 +5,7 @@ if (isset($_SESSION['username'])) {
         $username = $_SESSION['username']; //has to be logged in
 
 } else
-        header("refresh:2; url=login_student.php");
+        header("refresh:2; url=login_teacher.php");
 if (isset($_GET['semester'])) {
         $sem_sub = $_GET['sem'];
 }
@@ -15,7 +15,7 @@ if (isset($_GET['semester'])) {
 <html lang="en">
 
 <head>
-        <title>Assignment Inside</title>
+        <title>Notices Options</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -52,14 +52,15 @@ if (isset($_GET['semester'])) {
         <div id="wrapper" class="toggled">
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand"> <a href="#"> <?php echo $_SESSION['username']?> </a> </li>
-                    <li> <a href="firstteacher.php">Dashboard</a> </li>
-                    <li> <a href="assignmentinside.php">Assignments</a> </li>
-                    <li> <a href="noticeview.php">Notices</a> </li>
-                    <li> <a href="studyupload.php">Study Material</a> </li>
-                    <li> <a href="#">Contact</a> </li>
-                </ul>
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"> <a href="firstteacher.php"> <?php echo $_SESSION['username'] ?> </a> </li>
+                <li> <a href="firstteacher.php">Dashboard</a> </li>
+                <li> <a href="subjects.php">Subjects</a> </li>
+                <li> <a href="assignmentinside.php">Assignments</a> </li>
+                <li> <a href="noticeinside.php">Notices</a> </li>
+                <li> <a href="studyinside.php">Study Material</a> </li>
+                <li> <a href="logout_teacher.php">Logout</a> </li>
+            </ul>
             </div> <!-- /#sidebar-wrapper -->
             <div id="page-content-wrapper">
             <div class="container"><!---a condition bases container----->
@@ -69,33 +70,44 @@ if (isset($_GET['semester'])) {
                 
              <div class="p-3"></div>
                         <div class="container row ">
-                                <div class="col-sm-6">
-                                        <a href="assview_student.php">
-                                                <div class="custom-card card-seola" style="background-image:url('assignmentviewbystudent.png')">
 
-
-                                                        <div class="custom-card-banner">
-                                                                <h4> View Assignments</h3>
-
-                                                        </div>
-                                                </div>
-                                        </a>
-                                </div>
-
-                                <div class="col-sm-6">
-                                        <a href="assignmentsubmit.php">
-                                                <div class="custom-card card-silverish-black" style="background-image:url('submitting.jpg')">
+                                <div class="col-md-4">
+                                        <a href="studyview_teacher.php">
+                                                <div class="custom-card card-viewstudy" style="background-image:url('viewstudy.jpg')">
 
 
                                                         <div class="custom-card-banner ">
-                                                                <h4>Submit Assignments</h3>
+                                                                <h4>View</h4>
 
                                                         </div>
                                                 </div>
                                         </a>
                                 </div>
 
-                                
+                                <div class="col-md-4">
+                                        <a href="studyupload.php">
+                                                <div class="custom-card card-addstudy" style="background-image:url('uploadstudymat.png')">
+
+
+                                                        <div class="custom-card-banner">
+                                                                <h4>Add</h4>
+
+                                                        </div>
+                                                </div>
+                                        </a>
+                                </div>
+
+                                <div class="col-md-4">
+                                        <a href="deletstudymat.php">
+                                                <div class="custom-card card-deletenotice" style="background-image:url('deletenotice.png')">
+                                                        <div class="custom-card-banner">
+                                                                <h4>Delete</h4>
+
+                                                        </div>
+                                                </div>
+                                        </a>
+                                </div>
+
                         </div>
                         <div class="p-5"></div>    
                 </div><!---end of optional container--->    
