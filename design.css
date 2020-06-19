@@ -1,0 +1,7 @@
+.body{
+    border-style:solid;
+    padding: 10px;
+    padding-bottom: 180px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
