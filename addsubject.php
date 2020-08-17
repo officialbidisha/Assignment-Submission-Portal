@@ -29,6 +29,7 @@ else
       background-position: center;
       background-size: contain;
     }
+    
   </style>
 </head>
 
