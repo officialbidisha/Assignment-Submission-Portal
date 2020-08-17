@@ -10,7 +10,6 @@ if (isset($_GET['sem'])) {
     $sem_sub = $_GET['sem'];
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
