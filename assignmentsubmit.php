@@ -8,6 +8,7 @@ if (isset($_SESSION['username'])) {
   header("refresh:2; url=login_student.php");
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
