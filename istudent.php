@@ -13,6 +13,7 @@ if (isset($_GET['semester'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+        
 
 <head>
         <title>Assignment Inside</title>
