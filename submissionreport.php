@@ -12,6 +12,7 @@ if (isset($_GET['sem'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+  
 
 <head>
   <title>View Report</title>
