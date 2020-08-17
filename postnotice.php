@@ -29,6 +29,7 @@ $semester = !empty($_GET['sem']) ? $_GET['sem'] : '';
       background-size: contain;
     }
   </style>
+  
 </head>
 
 <body>
