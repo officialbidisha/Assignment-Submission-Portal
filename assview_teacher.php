@@ -10,6 +10,7 @@ if (isset($_GET['sem'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
